@@ -1,0 +1,299 @@
+$c1: #272e32
+$c2: #6441A4
+$c3: #2d9fd4
+$c4: lighten(teal, 5%)  //#ffa000
+$white: #FFF
+$black: #333333
+
+$calert: #C0392B
+
+$small: 360px
+$medium: 720px
+$large: 1024px
+
+$font: Roboto, sans-serif
+
+@import 'reset'
+
+// --- = General State --------------
+// ----------------------------------
+::-moz-selection,
+::selection
+	background: $c2
+	color: $white
+
+	// Informer sur utilisation de target
+
+
+// --- = Forum --------------------
+// ----------------------------------
+#forum
+	display: flex
+	min-height: 100vh
+
+// --- = Hamburger ------------------
+// ----------------------------------
+#hamburger
+	position: absolute
+	top: 0
+	right: -2.6em
+	border-radius: 0 0 4px 0
+	background: $c1
+	a
+		display: block
+		padding: .28em .6em
+
+// --- = Sidebar --------------------
+// ----------------------------------
+#sidebar
+	z-index: 5
+	position: absolute
+	top: 0
+	bottom: 0
+	left: 0
+	//flex: 1
+	width: 14em
+	background: $c1
+	transform: translateX(-14.2em)
+
+	transition: all .8s
+	&.active
+		transform: translateX(0)
+	&.active + #main
+		margin-left: 14em
+
+#sidebar_user
+	display: flex
+	flex-wrap: wrap
+	width: 100%
+
+	background: lighten($c1, 5%)
+
+	.username
+		flex: 100%
+		padding: .35em 1em 
+		background: $c1
+
+		a
+			color: $white
+			font-size: 1.05em
+
+	.user
+		display: flex
+		align-items: center
+		width: 100%
+		padding: .75em .5em
+
+		border-top: 1px solid darken($black, 5%)
+		border-bottom: 1px solid darken($black, 5%)
+
+	.avatar
+		width: 50px
+		height: 50px
+		margin: 0 .5em
+		overflow: hidden
+		
+		border-radius: .1em
+		background: green
+
+		img
+			display: block
+			width: 50px
+
+	.links
+		flex: 1
+		display: flex
+		flex-direction: column
+
+		> div
+			flex: 1
+		a
+			display: block
+			padding: .1em 0
+
+			color: darken($white, 5%)
+			font-size: .9em
+		svg,
+		span
+			display: inline-block
+		svg
+			vertical-align: middle
+			margin: .25em .75em .1em .5em
+
+			font-size: 1em
+			fill: darken($white, 5%)
+		span
+			vertical-align: middle
+		#notify_message
+			position: relative
+		.ico-notify-message
+			position: absolute
+			top: .6em
+			right: -1.1em
+			display: block
+			width: 1.75em
+			height: 1.75em
+
+			border-radius: 2px 0 0 2px
+			background: $calert
+
+			color: rgba($white, .75)
+			font-size: .7em
+			text-align: center
+			line-height: 1.7em
+			font-style: normal
+			font-family: Calibri, monospace
+			&:before
+				content: ''
+				display: block
+				position: absolute
+				bottom: -.4em
+				right: 0
+
+				border-top: .4em solid $c1
+				border-right: .4em solid transparent
+
+		.profil
+
+// --- = Sidebar Navigation ---------
+// ----------------------------------
+#sidebar_navigation
+	padding: 1em 0
+
+	li
+		padding: .25em 0
+
+		border-top: 1px solid $c1
+		border-bottom: 1px solid darken($c1, 4%)
+		background: darken($c1, 2%)
+		&:first-child
+			border-top: 1px solid darken($c1, 4%)
+		&:hover
+			border-top: 1px solid darken($c1, 4%)
+			transform: scale(-1.1,1.1)
+		&:hover span
+			transform: scale(-1.1,1.1)
+
+	a
+		display: flex
+		align-items: center
+		padding: .25em .5em
+		color: darken($white, 10%)
+	span,
+	svg
+		display: inline-block
+	svg
+		margin-right: .75em
+		fill: lighten($c1, 35%)
+
+// --- = Sidebar Forums -------------
+// ----------------------------------
+#sidebar_forums
+	padding: 0
+
+	li
+		padding: .25em 0
+		&.active
+			background: darken($c2, 15%)
+			a
+				color: $white
+				text-shadow: 1px 1px 1px $black
+			svg
+				fill: $white
+				
+	a
+		display: flex
+		align-items: center
+		padding: .25em .5em
+		color: darken($white, 10%)
+	span,
+	svg
+		display: inline-block
+	svg
+		margin-right: .5em
+		fill: darken($white, 50%)
+
+// --- = Main -----------------------
+// ----------------------------------
+#main
+	flex: 4
+	display: flex
+	flex-direction: column
+	transition: all .8s
+
+// --- = Logo -----------------------
+// ----------------------------------
+#logo
+	margin: .5em 2em
+	background: red
+	font-size: 2em
+	img
+		display: block
+		width: 100%
+
+// --- = Single Category ------------------
+// Page qui n'affiche qu'une seule catégorie du forum
+// c.f. : @lien_vers_une_image
+// ----------------------------------------
+.single_category
+	height: 100vh
+	overflow: auto
+
+	.category
+		margin: 1em 4em
+
+	.title
+		padding: 0 0 1em 0
+		font-size: 1.3em
+		font-weight: 300
+		text-align: center
+
+	.category-topic
+		display: flex
+		align-items: center
+		margin-bottom: 2em
+
+		//border: 1px solid $c1
+
+		h2
+			min-width: 10em
+			margin-bottom: .5em
+
+			color: lighten($c1, 2%)
+			font-size: 1.085em
+			font-weight: 400
+		.header
+			position: relative
+			margin-right: 1em
+			padding-right: 1em
+			&::after
+				content: ''
+				display: block
+				position: absolute
+				top: 0
+				right: 0
+				height: 100%
+				width: 1px
+				background: linear-gradient(to top, transparent, rgba($c2, .35), transparent) 
+
+			div
+				display: flex
+				align-items: center
+			.nb-topic,
+			.nb-reply
+				padding: .2em .4em
+				border-radius: 2px
+				background: lighten($c2, 8%)
+				color: $white
+				font-size: .75em
+			.nb-topic
+				margin-right: 1em
+			p
+				margin-top: .5em
+				line-height: 1.6em
+			
+		.last-reply
+			width: 18em
+			padding-left: 1em
+			font-size: .9em
+			line-height: 1.6em

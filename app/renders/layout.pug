@@ -1,0 +1,123 @@
+doctype html
+html(lang="fr")
+	head
+		block title
+			title ATDC - Forum
+
+		meta(name="viewport", content="width=device-width, initial-scale=1").
+		meta(http-equiv="X-UA-Compatible", content="IE=edge").
+		meta(name="descritpion", content="Dashboard - Sans bootstrap, sans javascript, is simple Dashboard")
+		meta(charset="utf-8")
+
+		meta(name="author", content="Hisakki").
+
+		link(rel="stylesheet", href="assets/css/app.css").
+
+	body
+		// A faire
+			- Utiliser sprite pour image
+			- Gerer navigateur sans svg
+			- Mettre polyfill
+			- Utiliser prefixer
+			- Utiliser schema.org
+			- Donner des noms concrets aux images (banniere-a-toi-de-coder.jpg)
+			- Verifier alt
+
+		#forum
+
+			block sidebar
+				sidebar#sidebar.active
+					#hamburger
+						a(href=''): svg: use(xlink:href='assets/img/symbol/sprite.svg#hamburger')
+
+					#sidebar_user
+						.username
+							a(href='profil') Wirusu Senketsu
+
+						.user
+							.avatar
+								picture.picture
+									source(media="(max-width: 480px)", srcset="assets/img/avatar-07.jpg")
+									source(media="(max-width: 640px)", srcset="assets/img/avatar-07.jpg")
+									source(media="(max-width: 1024px)", srcset="assets/img/avatar-07.jpg")
+									img(src="assets/img/avatar-07.jpg", alt="Avatar de User")
+							.links
+								.profil
+									a(href='')
+										svg: use(xlink:href='assets/img/symbol/sprite.svg#account')
+										span Profil
+								#notify_message
+									a(href='')
+										svg: use(xlink:href='assets/img/symbol/sprite.svg#message')
+										span Message
+											i.ico-notify-message 12
+
+					nav#sidebar_navigation
+						ul
+							li: a(href='')
+								svg: use(xlink:href='assets/img/symbol/sprite.svg#home')
+								span Accueil
+							li: a(href='')
+								svg: use(xlink:href='assets/img/symbol/sprite.svg#blog')
+								span Blog
+							li: a(href='')
+								svg: use(xlink:href='assets/img/symbol/sprite.svg#tuto')
+								span Tutoriels
+							li: a(href='')
+								svg: use(xlink:href='assets/img/symbol/sprite.svg#power')
+								span Déconnexion
+
+					nav#sidebar_forums
+						ul
+							li: a(href='')
+								svg: use(xlink:href='assets/img/symbol/sprite.svg#arrow-right')
+								span Forum 01
+							li: a(href='')
+								svg: use(xlink:href='assets/img/symbol/sprite.svg#arrow-right')
+								span Forum 02
+							li.active: a(href='')
+								svg: use(xlink:href='assets/img/symbol/sprite.svg#arrow-right')
+								span Forum 03
+							li: a(href='')
+								svg: use(xlink:href='assets/img/symbol/sprite.svg#arrow-right')
+								span Forum 04
+
+
+			block main
+				// home = page qui affiche la page d'accueil (toutes les categories)
+				// single_category = page qui affiche qu'une category
+				main#main.single_category
+					
+					#logo
+						picture.picture
+							source(media="(max-width: 480px)", srcset="assets/img/img-blog.jpg")
+							source(media="(max-width: 640px)", srcset="assets/img/img-blog.jpg")
+							source(media="(max-width: 1024px)", srcset="assets/img/img-blog.jpg")
+							img(src="assets/img/img-blog.jpg", alt="Bienvenue sur A toi de coder")
+
+					
+					section#category_php.category
+
+						// Contenu du H1 = info de la page
+						// Besoin SEO
+						h1.title Forum 03 - Apprentissage du PHP
+
+						each i in [1,2,3,4,5,6]
+
+							article.category-topic
+								header.header
+									h2: a(href='') Le PHP c'est du lourd !
+									div
+										.nb-topic 12 sujets
+										.nb-reply 42 messages
+									p.
+										Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+										tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+								aside.last-reply
+									p
+										| <a class='last-topic' href=''>Les erreurs en PHP</a> <br>
+										| Il y a <time datetime="">15 min</time> <br>
+										| Par <a class='author' href=''>Wirusu Senketsu</a> <br>
+
+		script(src='assets/js/jquery.js')
+		script(src='assets/js/app.js')
