@@ -95,8 +95,7 @@ svg.center {
     height: 50px;
     margin: 0 .5em;
     overflow: hidden;
-    border-radius: .1em;
-    background: green; }
+    border-radius: .1em; }
     #sidebar_user .avatar img {
       display: block;
       width: 50px; }
@@ -204,7 +203,6 @@ svg.center {
 
 #logo {
   margin: .5em 2em;
-  background: red;
   font-size: 2em; }
   #logo img {
     display: block;

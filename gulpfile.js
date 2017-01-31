@@ -27,7 +27,7 @@ gulp.task('sass', function() {
 
 gulp.task('views', function buildHTML() {
   return gulp.src('app/renders/*.pug')
-  	.pipe(pug({}))
+  	.pipe(pug({'pretty': '    '}))
     .pipe(gulp.dest("app/"))
     .pipe(browserSync.stream());
 });
